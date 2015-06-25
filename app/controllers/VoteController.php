@@ -9,7 +9,8 @@ class VoteController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$text = '{"name":"John Johnson","street":"Oslo West 16","phone":"555 1234567"}';
+		return $text;	
 	}
 
 

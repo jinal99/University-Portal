@@ -36,13 +36,16 @@ class QuestionController extends \BaseController {
 		$question->body=Input::get('body');
 		$question->id_user=Auth::user()->id;
 		$question->save();
+		
+		$tags = explode(',', Input::get('tags'));
 
-		$tags=new Tag;
-		$tags->tags=Input::get('tags');
-		$tags->id_question=Question::orderBy('id', 'desc')->take(1)->pluck('id');
-		$tags->save();
-
-		return Redirect::to('/questions');		
+		foreach ($tags as $tag_value) {
+			$tag =new Tag;
+			$tag->id_question = $question->id;
+			$tag->tags = $tag_value;
+			$tag->save();
+		}
+		return Redirect::to('/questions');	
 	}
 
 
@@ -54,7 +57,12 @@ class QuestionController extends \BaseController {
 	 */
 	public function show()
 	{
-			}
+		
+		$search=$_GET['search'];
+		$id_questions=DB::table('questions')
+            ->join('tags', 'questions.id', '=', 'tags.id_question')->where('tags','=',$search)->get(); 
+		return View::make('/questions/search')->with('id_questions',$id_questions);
+	}
 
 
 	/**

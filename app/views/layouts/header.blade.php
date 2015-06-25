@@ -13,10 +13,9 @@
  </div>
       <div class="col-md-4 col-md-offset-8" style="position:relative;top:-38px;">
             
-            <form action="searchQuestion" class="search-form">
+            <form action="/questions/search" class="search-form">
                 <div class="form-group has-feedback">
-                <label for="search" class="sr-only">Search</label>
-                <input type="text" class="form-control" name="search" id="search" placeholder="Search Questions By Tags">
+                  <input type="text" class="form-control" name="search" id="search" placeholder="Search Questions By Tags">
                   <span class="glyphicon glyphicon-search form-control-feedback"></span>
               </div>
             </form>

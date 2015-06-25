@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('content')
-{{ Form::open(array('action' => 'QuestionController@store')) }}
+<div class="col-sm-8">
+{{ Form::open(array('action' => 'QuestionController@store','id'=>'question')) }}
 <p>
 {{ Form:: label('Subject:')}}
 	{{Form::text('subject')}}
@@ -9,12 +10,17 @@
    {{$errors->first('body')}}
 </p>
 <p>
-	Enter Tags:<ul id="demo4"></ul>
+    <div class="box">
+		<ul id="demo4"></ul>
+	</div>
+ 
+</p>
 <p>
+	{{ Form::hidden('tags','' ,array('id' => 'tags')) }}
 	{{Form::submit('submit')}}
 </p>
-
-{{Form::close()}}
-
-
+</div>
+ <!--  <div class="col-sm-4" style="background-color:lavender;">
+  	<h3>How To Ask</h3>
+  </div> -->
 @stop
