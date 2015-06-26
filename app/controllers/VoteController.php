@@ -9,10 +9,11 @@ class VoteController extends \BaseController {
 	 */
 	public function index()
 	{
-		$text = '{"name":"John Johnson","street":"Oslo West 16","phone":"555 1234567"}';
-		return $text;	
-	}
+		
+		
+}
 
+			
 
 	/**
 	 * Show the form for creating a new resource.
@@ -83,5 +84,20 @@ class VoteController extends \BaseController {
 		//
 	}
 
+	public function voteUp()
+	{
+		$id_question=$_GET['qid'];
+		$vote= Vote::where('id_question','=',$id_question)->where('id_user','=', Auth::user()->id)->first();
+		if($vote == null)
+		{
+			$vote = new Vote;
+			$vote->id_question = $id_question;
+			$vote->id_user = Auth::user()->id;
+			$vote->likes = 1;
+			$vote->save();
+		}
+				$total_votes = Vote::where('id_question','=',$id_question)->sum('likes');
+				return json_encode($total_votes);
+	}
 
 }
