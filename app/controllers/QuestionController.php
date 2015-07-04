@@ -9,11 +9,9 @@ class QuestionController extends \BaseController {
 	 */
 	public function index()
 	{
-		$search="eng";
-		$displayQuestions=DB::table('questions')
-            ->leftjoin('votes', 'questions.id', '=', 'votes.id_question')->get(array('questions.id','questions.subject','votes.likes','votes.dislikes','questions.body','questions.id_user','questions.created_at')); 
+		$displayQuestions=Question::get();
 		return View::make('questions.index')->with('displayQuestions',$displayQuestions);
-           //var_dump($displayQuestions);
+           /*var_dump($displayQuestions);*/
 	}
 
 
@@ -41,12 +39,12 @@ class QuestionController extends \BaseController {
 		$question->id_user=Auth::user()->id;
 		$question->save();
 
-		$vote=new Vote;
+		/*$vote=new Vote;
 		$vote->id_question = $question->id;
 		$vote->likes="0";
 		$vote->dislikes="0";
 		$vote->save();
-
+*/
 		
 		$tags = explode(',', Input::get('tags'));
 
@@ -113,7 +111,18 @@ class QuestionController extends \BaseController {
 
 	public function display()
 	{
-		return "string";
+		$id=$_GET['id'];
+		switch($id)
+		{
+			case 1:
+			$questions = Question::orderBy('created_at','DESC')->get();
+			return json_encode($questions);
+			break;
+
+			case 2:
+			
+		}
+		
 	}
 
 

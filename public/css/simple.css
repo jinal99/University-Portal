@@ -139,7 +139,7 @@ html {
 	width:1320px; 
 }
 
- 
+ /*search box*/
 .search-form .form-group {
   float: right !important;
   transition: all 0.2s, border-radius 0s;
@@ -312,11 +312,6 @@ h1, h2, h3, h4, h5, h6 {
 .features ul li {
 	margin-bottom: 5px;
 }
-
-
-
- 
-
 .thead th {
 	background: #f4f9fe;
 	font: bold 1.2em/2em "Century Gothic", "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -396,7 +391,8 @@ select.tagit-hiddenSelect {
 	display: inline-block !important;
 }
 
-  #languages-select {
+  #languages-select 
+  {
                 width: 530px;
             }
             
@@ -410,3 +406,10 @@ select.tagit-hiddenSelect {
             .body-content > div {
                 margin: 20px;
             }
+
+/*active nabar*/
+.active
+{
+	background-color:#EEEEEE; 
+}
+
