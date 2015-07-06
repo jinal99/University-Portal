@@ -1,10 +1,14 @@
+<div id="displayQuestions">
 @extends('layouts.main')
 @section('content')
-<ul>
-        <li onclick="display('1')" style="cursor:pointer;"><a>Newest</a></li>
-        <li onclick="display('2')" style="cursor:pointer;"><a>Most Voted</a></li>
-        <li onclick="display('3')" style="cursor:pointer;"><a>Unanswered</a></li>
-</ul>
+<div class="cd-tabs">
+  <nav>
+    <ul class="cd-tabs-navigation">
+    <li onclick="display('1')" style="cursor:pointer;"><a>Newest</a></li>
+    <li onclick="display('2')" style="cursor:pointer;"><a>Most Voted</a></li>
+<!--     <li onclick="display('3')" style="cursor:pointer;"><a>Unanswered</a></li> -->
+  </nav>
+</div> <!-- cd-tabs -->
 <table class="table table-striped">
 @foreach($displayQuestions as $displayQuestion)
 <tr>
@@ -28,7 +32,7 @@
 @endforeach
 
 </table>
-
+</div>
 <script>
 
 function voteUp(qid){
@@ -63,19 +67,13 @@ $.ajax({
 
 function display(id)
 {
- var url = "display";
-$.ajax({
+  var url = "display";
+  $.ajax({
   type: "GET",
   url: url,
-  data: {id: id},
-  success: function(result){
-     var message = jQuery.parseJSON(result);
-     alert(message[0].subject);
-
-
- 
-    }
-});
+  data: {id: id}
+  });
+  $("#displayQuestions").load("display?id="+id);
 }
 
 </script>

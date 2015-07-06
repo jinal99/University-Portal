@@ -115,12 +115,22 @@ class QuestionController extends \BaseController {
 		switch($id)
 		{
 			case 1:
-			$questions = Question::orderBy('created_at','DESC')->get();
-			return json_encode($questions);
+			$displayQuestions = Question::orderBy('created_at','DESC')->get();
+			return View::make('questions.index')->with('displayQuestions',$displayQuestions);
 			break;
 
 			case 2:
+			$displayQuestions=Question::leftJoin('votes', 'questions.id', '=', 'votes.id_question')
+    		->select(DB::raw('questions.id,questions.subject,questions.id_user,questions.body, SUM(votes.likes) as mostLikes'))
+    		->groupBy('questions.id')
+    		->orderBy('mostLikes','DESC')
+    		->get();
+    		return View::make('questions.index')->with('displayQuestions',$displayQuestions);
 			
+		 
+			case 3:
+			$questions=Question::leftJoin('answers','questions.id', '=', 'answers.id_question')->get();
+			return json_encode($questions);
 		}
 		
 	}

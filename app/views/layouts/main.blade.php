@@ -2,7 +2,7 @@
 <head>
 <meta charset="utf-8">
 {{ HTML::style('/css/simple.css'); }}
-<link rel="stylesheet" href="/tagit-hailwood/css/tagit-simple-blue.css">
+ <link rel="stylesheet" href="/tagit-hailwood/css/tagit-simple-blue.css">
  
 <!--jquery-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>

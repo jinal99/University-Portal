@@ -17,6 +17,7 @@
         <li><a href="/">Home</a></li>
         <li><a href="/users/login">Login</a></li>
         <li><a href="/questions">Questions</a></li>
+         <li><a href="/logout">Logout</a></li>
       </ul>
   </div>
  </div>
