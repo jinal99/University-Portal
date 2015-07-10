@@ -1,4 +1,4 @@
-@extends('layo	uts.main')
+@extends('layouts.main')
 @section('content')
 
 <div class=class="sr-only">

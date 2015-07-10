@@ -33,7 +33,11 @@ class AnswerController extends \BaseController {
 	 */
 	public function store()
 	{
-	return "storing";
+		$answer=new Answer;
+		$answer->subject=Input::get('id_question');
+		$question->body=Input::get('body');
+/*		$question->id_user=Auth::user()->id;*/
+		$question->save();
 	}
 
 
