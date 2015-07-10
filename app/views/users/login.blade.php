@@ -7,7 +7,7 @@
  	{{ Form::open(['route' => 'home.store']) }}
 		<table>
 	 	<tr>
-	 	<td> {{ Form:: label('username','USERNAME:')}} </td>
+	 	<td><div style="color:#337AB7;">{{ Form:: label('username','USERNAME:')}}</div></td>
 	 	<td><input type="text" class="form-control" name="username" id="username"></td><br/>  
 	 	</tr>
 
@@ -24,9 +24,9 @@
 		</table>
 		<div class="lineHeight"></div>
 		<div class="submit">
-		<p>	<input type="submit" value="Sign In" >
+		<p><input type="submit" value="Sign In" >
 			<div class="or">OR</div>
-			<div class="newUser"><a href="users/register"><button>Create A New User</button></div></p>
+			<div class="newUser"><button><a href="/users/register" style="text-decoration:none;">Create A New User</a></button></div></p>
 		</div>
 	</div>
 </div>

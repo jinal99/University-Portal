@@ -414,3 +414,35 @@ select.tagit-hiddenSelect {
 }
 
 
+ul#maintabs {
+  text-align: left;
+  font-size: 0;
+  margin: 0;
+  padding: 0;
+  padding-left: 20px;
+  list-style-type: none;
+}
+
+ul, menu, dir {
+  display: block;
+  list-style-type: disc;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 40px;
+}
+
+#questions
+{
+	cursor:pointer; 
+
+}
+
+.tab-pane {
+ 
+  padding: 10px;
+}
+
+
+

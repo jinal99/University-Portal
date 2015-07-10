@@ -9,7 +9,9 @@ class AnswerController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$id=$_GET['id'];
+		$displayQuestions=Question::where('id','=',$id)->get();
+		return View::make('answers.index')->with('displayQuestions',$displayQuestions);
 	}
 
 
@@ -31,7 +33,7 @@ class AnswerController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+	return "storing";
 	}
 
 
